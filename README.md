@@ -1,2 +1,2 @@
 # academia_indiana
-Curso de Git academia de TI Indiana
+Curso de desenvolvedor Academia de TI Indiana
