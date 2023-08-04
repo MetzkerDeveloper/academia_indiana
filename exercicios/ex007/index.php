@@ -60,7 +60,7 @@
       }
       */
       $numMes = 8;
-      $mes = ($numMes <= 12 ) ? $mesArray[$numMes] : " Mês inválido!";
+      $mes = ($numMes >=1 && $numMes <= 12 ) ? $mesArray[$numMes] : " Mês inválido!";
       echo "<p>O mês $numMes é  $mes</p>";
       ?>
     </h4>
