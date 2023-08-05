@@ -11,6 +11,7 @@ Sobrepeso 24.9 a 30
 Obesidade > 30
 */
 
+ 
 function imc($peso, $altura)
 {
   $imc = $peso / pow(($altura/100),2); // outro método seria $peso / (($altura/100)**2);
@@ -30,6 +31,7 @@ function imc($peso, $altura)
   {
     echo "Você está com Obesidade ";
   }
+  
   return  number_format($imc,2,",",".");
 }
 
