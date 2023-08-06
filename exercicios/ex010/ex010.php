@@ -3,20 +3,28 @@
 10- Crie um script em PHP crie dois vetores de 10 posições preenchidos com valores aleatórios.
 Faça a soma dos elementos de mesmo índice, colocando o resultado em um terceiro vetor.
 Imprima os três vetores, um após o outro. Obs: Utilize um for
-
 */
 
-$arrayNum = array(1,5,8,9,4,6,10,2,7,3);
-$arrayNum2 = array(10,7,5,4,6,9,1,3,2,8);
+$vetor1 = array();
+$vetor2 = array();
 
-foreach($arrayNum  as $index1 => $arr1){
-	
-	foreach($arrayNum2 as $index2 => $arr2){
-		
-		if($index1 == $index2){
-			echo "Indice [$index1]: $arr1 + Indice [$index2]: $arr2 => A soma é [".$arr1 + $arr2."]<br>";
-		}
-	}
+for($i = 0; $i < 10; $i++) {
+    $vetor1[] = rand(0, 10);
+    $vetor2[] = rand(0, 10);
+}
+// Criando um terceiro vetor que é a soma dos elementos dos dois vetores anteriores
+$vetor3 = array();
+for($i = 0; $i < 10; $i++) {
+    $vetor3[] = $vetor1[$i] + $vetor2[$i];
 }
 
+// Imprimindo os três vetores
+echo "Vetor 1: ";
+print_r($vetor1);
+echo"<br>";
+echo "Vetor 2: ";
+print_r($vetor2);
+echo"<br>";
+echo "Vetor 3: ";
+print_r($vetor3);
 ?>
