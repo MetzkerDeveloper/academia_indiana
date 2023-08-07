@@ -5,13 +5,14 @@ Se o valor da soma for negativo a função deverá o valor 0.
 */
 
 function somar($valor1, $valor2){
-  if($valor1 < 0 && $valor2 < 0 ){
+  $somar = $valor1 + $valor2;
+  if( $somar < 0 ){
     return 0;
   }else{
-    return $valor1 + $valor2;
+    return $somar;
   }
 }
 
-echo somar(1,1);
+echo somar(-7,6);
 
 ?>
