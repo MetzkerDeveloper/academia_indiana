@@ -1,0 +1,11 @@
+{
+  "editor.suggest.showFolders": true,
+  "explorer.expandSingleFolderWorkspaces": true,
+  "explorer.compactFolders": true,
+  "editor.foldingHighlight": true,
+  "files.enableTrash": true,
+  "codesnap.showWindowTitle": false,
+  "explorer.enableUndo": true,
+  "explorer.confirmDragAndDrop": true,
+  "explorer.enableDragAndDrop": true
+}
