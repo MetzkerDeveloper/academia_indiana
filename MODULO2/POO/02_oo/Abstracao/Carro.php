@@ -2,23 +2,18 @@
 
 class Carro 
 {
-  //Atributos
     public string $cor;
     public int $portas;
     public int $velocidade;
     public bool $faroisLigados;
     public bool $transmissaoManual;
 
-  // metodos
-  public function setCor(string $cor) : void 
-  {
-      $this->cor = $cor;
-  }
-
-  public function setPortas(int $portas): void
-  {
-    $this->portas = $portas;
-  }
+    public function __construct(int $portas, string $cor)
+    {
+     $this->portas = $portas;
+     $this->cor = $cor;
+     
+    }
 
   public function setVelocidade(int $velocidade):void
   {
