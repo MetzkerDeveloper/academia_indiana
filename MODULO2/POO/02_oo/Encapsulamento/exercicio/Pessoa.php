@@ -2,34 +2,28 @@
 
 class Pessoa
 {
-  //atributos
   private string $nome;
-  public int $idade;
+  private int $idade;
   private string $corDosOlhos;
   private string $genero;
-  public float $altura;
-  public float $peso;
+  private float $altura;
+  private float $peso;
 
-   public function __construct(string $corDosOlhos, string $genero) 
+   public function __construct(string $nome,int $idade, string $corDosOlhos, string $genero, float $altura, float $peso) 
    {
+    $this->nome = $nome;
+    $this->idade = $idade;
     $this->setCorDosOlhos($corDosOlhos);
     $this->setGenero($genero);
+    $this->altura = $altura;
+    $this->peso = $peso;
   }
-  public function setNome (string $nome):void
-  {
-    $this->nome = $nome;
-  }
-
+  
   public function getNome() : string 
   {
     return $this->nome;
   }
-
-  public function setIdade(int $idade) : void 
-  {
-    $this->idade = $idade;
-  }
-
+  
   public function getIdade(): int
   {
     return $this->idade;
@@ -59,53 +53,18 @@ class Pessoa
       echo PHP_EOL . "Genero informado não existe" . PHP_EOL;
    }
  }
- 
  public function getGenero() : string
  {
   return $this->genero;
- }
- 
- 
- public function setAltura(float $altura) : void 
- {
-  $this->altura = $altura;
  }
 
  public function getAltura() : float
  {
   return $this->altura;
  }
-  
- public function setPeso(float $peso) : void 
- {
-  $this->peso = $peso;
- }
-
  public function getPeso() : float
  {
   return $this->peso;
  }
-
-
- 
 }
-
-/*
-
-No caso do atributo corDosOlhos só poderá ser inserido uma dessas opções: 
-- Azul;
-- Castanho;
-- Verde;
-- Preto.
-
-E no gênero estas opções:
-- Masculino;
-- Feminino;
-*/
-
-
-
-
-
-
 ?>
