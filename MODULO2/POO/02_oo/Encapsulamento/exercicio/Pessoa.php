@@ -9,14 +9,14 @@ class Pessoa
     private float $altura;
     private float $peso;
 
-    public function __construct(string $nome, int $idade, string $corDosOlhos, string $genero, float $altura, float $peso)
+    public function __construct(string $nome, string $corDosOlhos, string $genero)
     {
         $this->nome = $nome;
-        $this->setIdade($idade);
+        //$this->setIdade($idade);
         $this->setCorDosOlhos($corDosOlhos);
         $this->setGenero($genero);
-       $this->setAltura($altura);
-        $this->setPeso($peso);
+       //$this->setAltura($altura);
+        //$this->setPeso($peso);
     }
 
     public function getNome(): string
@@ -29,27 +29,28 @@ class Pessoa
         return $this->idade;
     }
 
-    private function setIdade(int $idade): void 
+    public function setIdade(int $idade): self //No caso do self retorna a propria referencia da classe Pessoa.
     {
         if (($idade < 0) || ($idade > 100)) {
             echo "Idade informada é invalida" . PHP_EOL;
             exit();
         }
-
+        
         $this->idade = $idade;
+        return $this;
     }
 
     private function setCorDosOlhos(string $corDosOlhos): void
     {
         $opcoes = ["Azul", "Castanho", "Verde", "Preto", "Rosa"];
 
-        if(in_array($corDosOlhos, $opcoes)) {
-            $this->corDosOlhos = $corDosOlhos;
-            return;
+        if(!(in_array($corDosOlhos, $opcoes))) {
+            echo "Cor dos olhos inválida" . PHP_EOL;
+            exit();
         }
-
-        echo "Cor dos olhos inválida" . PHP_EOL;
-        exit();
+        
+        $this->corDosOlhos = $corDosOlhos;
+       
     }
 
     public function getCorDosOlhos(): string
@@ -74,25 +75,27 @@ class Pessoa
     {
         return $this->genero;
     }
-    private function setAltura(float $altura) : void
+    public function setAltura(float $altura) : self
     {
       if(($altura < 0) || ($altura > 2.20)){
         echo "Altura inválida";
         exit();
       }
       $this->altura = $altura;
+      return $this;
     }
     public function getAltura(): float
     {
         return $this->altura;
     }
-    private function setPeso(float $peso) : void
+    public function setPeso(float $peso) : self
     {
       if(($peso < 0) && ($peso > 140) ) {
         echo "Peso inválido";
         exit();
       }
       $this->peso = $peso;
+      return $this;
     }
     public function getPeso(): float
     {
