@@ -1,20 +1,20 @@
 <?php
 
-class Carro implements CarroInterface
+namespace Polismorfirmo;
+
+abstract class Carro
 {
     protected string $cor;
     protected int $portas;
-    protected int $torque;
     protected int $velocidade;
     protected string $modelo;
     protected bool $faroisLigados;
     protected string $transmissao;
 
-    public function __construct(int $portas, string $modelo, string $cor, int $torque, string $transmissao)
+    public function __construct(int $portas, string $modelo, string $cor, string $transmissao)
     {
         $this->portas = $portas;
         $this->cor = $cor;
-        $this->torque = $torque;
         $this->velocidade = 0;
         $this->modelo = $modelo;
         $this->faroisLigados = false;
@@ -24,12 +24,6 @@ class Carro implements CarroInterface
     public function getCor(): string 
     {
         return $this->cor;
-    }
-
-    public function acelerar(): CarroInterface
-    {
-        $this->velocidade += $this->torque;
-        return $this;
     }
 
     public function getVelocidade(): int
@@ -60,4 +54,6 @@ class Carro implements CarroInterface
     {
         return $this->transmissao;
     }
+
+    abstract public function acelerar();
 }
