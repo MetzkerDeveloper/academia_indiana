@@ -22,5 +22,5 @@ $aula->marcarAula($aluno,$professor);
 echo "<pre>";
 var_dump($aula);
 echo "<br>";
-var_dump($aula->darAula(5,2));
+echo $aula->darAula(5,5);
 echo "</pre>";

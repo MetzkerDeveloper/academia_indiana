@@ -20,6 +20,8 @@ class Aula
       $this->turma = false;
       $this->aluno = null;
       $this->professor = null;
+
+      echo "Aula não pode ser realizada pois o professor não é especializado na materia que o aluno se encontra matriculado!";
     } 
   }
 
@@ -32,5 +34,3 @@ class Aula
   }
   
 }
-
-?>
