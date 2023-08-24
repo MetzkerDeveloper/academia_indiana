@@ -49,5 +49,43 @@ SELECT * FROM cursos_disciplinas;
 
 INSERT INTO cursos_disciplinas (id_curso,id_disciplina) VALUES (1,1);
 INSERT INTO cursos_disciplinas(id_curso, id_disciplina) VALUES(2,2);
+INSERT INTO cursos_disciplinas (id_curso,id_disciplina) VALUES (1,2);
+INSERT INTO cursos_disciplinas(id_curso, id_disciplina) VALUES(2,1);
 
+-- seleções
 SELECT * FROM cursos_disciplinas WHERE id_curso = 2;
+
+SELECT * FROM cursos;
+
+SELECT id,nome FROM cursos;
+
+SELECT * FROM disciplinas;
+
+SELECT * FROM disciplinas ORDER BY id ASC;
+
+SELECT nome FROM disciplinas GROUP BY nome;
+
+-- seleção com Left e Right join
+
+SELECT cursos_disciplinas.id_curso,cursos.nome AS nome_curso,cursos_disciplinas.id_disciplina,
+disciplinas.nome AS nome_disciplina FROM cursos_disciplinas
+LEFT JOIN cursos ON cursos.id = cursos_disciplinas.id_curso
+LEFT JOIN disciplinas ON disciplinas.id = cursos_disciplinas.id_disciplina;
+
+SELECT cursos_disciplinas.id_curso,cursos.nome AS nome_curso,cursos_disciplinas.id_disciplina,
+disciplinas.nome AS nome_disciplina FROM cursos_disciplinas
+RIGHT JOIN cursos ON cursos.id = cursos_disciplinas.id_curso
+RIGHT JOIN disciplinas ON disciplinas.id = cursos_disciplinas.id_disciplina;
+
+SELECT nome FROM cursos  UNION ALL SELECT nome FROM disciplinas;
+
+-- uptadade
+UPDATE disciplinas SET nome ='Teste' WHERE id=3;
+
+SELECT * FROM disciplinas;
+
+-- delete
+
+DELETE FROM disciplinas WHERE id=3;
+
+
