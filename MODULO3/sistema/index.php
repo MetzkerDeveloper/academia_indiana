@@ -38,7 +38,7 @@ $anoAtual = date('Y');
           </div>
           <div class="mb-3">
             <label class="form-label">Ano</label>
-            <input type="text" name="ano" class="form-control" min="1980" max="<?= $anoAtual ?>"
+            <input type="number" name="ano" class="form-control" min="1980" max="<?= $anoAtual ?>"
               placeholder="Digite o ano do veiculo">
           </div>
           <div class="modal-footer">

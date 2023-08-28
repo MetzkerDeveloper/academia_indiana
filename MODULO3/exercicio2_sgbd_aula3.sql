@@ -55,7 +55,8 @@ INSERT INTO funcionarios (nome, cpf,idade,ddd,telefone,endereco,bairro,numero,es
 'Av Brasil','Centro','1150','SP','1');
 INSERT INTO funcionarios (nome, cpf,idade,ddd,telefone,endereco,bairro,numero,estado, situacao) VALUES ('Nicolas Tesla','25814736910','70','73','999992222',
 'Av Brasil','Centro','1150','BA','1');
-
+INSERT INTO funcionarios (nome, cpf,idade,ddd,telefone,endereco,bairro,numero,estado, situacao) VALUES ('Gustavo Guanabara','25814736922','42','11','999992222',
+'Av Brasil','Centro','1150','SP','1');
 
 SELECT * FROM funcionarios;
 -- tabela cargos
@@ -69,11 +70,15 @@ descricao VARCHAR(255),
 PRIMARY KEY (id)
 );
 
+ALTER TABLE cargos MODIFY salario DECIMAL (20,6);
+
 INSERT INTO cargos (nome, setor,salario, descricao) VALUES ('Gerente','Tecnologia da Informacao','20000','Gerente geral da area de TI');
 INSERT INTO cargos (nome, setor,salario, descricao) VALUES ('Desenvolvedor Senior','Tecnologia da Informacao','15000','Desenvolve sistemas e coordena equipe');
 INSERT INTO cargos (nome, setor,salario, descricao) VALUES ('Desenvolvedor Junior','Tecnologia da Informacao','4500','Desenvolvedor de sistemas');
+INSERT INTO cargos (nome, setor,salario, descricao) VALUES ('Desenvolvedor Pleno','Tecnologia da Informacao','7500.57','Desenvolvedor de sistemas');
 
 SELECT * FROM cargos;
+
 
 -- tabela funcionarios_empresas
 
@@ -89,6 +94,7 @@ FOREIGN KEY (id_empresa) REFERENCES empresas(id)
 INSERT INTO funcionarios_empresas (id_funcionario,id_empresa) VALUES (1,1);
 INSERT INTO funcionarios_empresas (id_funcionario,id_empresa) VALUES (2,1);
 INSERT INTO funcionarios_empresas (id_funcionario,id_empresa) VALUES (3,1);
+INSERT INTO funcionarios_empresas (id_funcionario,id_empresa) VALUES (4,1);
 
 SELECT * FROM funcionarios_empresas;
 
@@ -107,6 +113,7 @@ FOREIGN KEY (id_cargo) REFERENCES cargos(id)
 INSERT INTO cargos_funcionarios (id_funcionario,id_cargo) VALUES (1,1);
 INSERT INTO cargos_funcionarios (id_funcionario,id_cargo) VALUES (2,3);
 INSERT INTO cargos_funcionarios (id_funcionario,id_cargo) VALUES (3,2);
+INSERT INTO cargos_funcionarios (id_funcionario,id_cargo) VALUES (4,5);
 
 SELECT * FROM cargos_funcionarios;
 
@@ -123,3 +130,11 @@ LEFT JOIN cargos ON cargos.id = cargos_funcionarios.id_cargo WHERE cargos.nome L
 
 -- contando quantidades de funcionarios da empresa
 SELECT COUNT(id_funcionario) FROM funcionarios_empresas WHERE id_empresa = 1;
+
+-- selecionando funcionarios por salario
+SELECT cargos_funcionarios.id_funcionario, cargos_funcionarios.id_cargo, funcionarios.cpf, funcionarios.nome AS nome_funcionario, 
+cargos.nome AS nome_cargo, cargos.descricao, cargos.salario
+FROM cargos_funcionarios
+LEFT JOIN funcionarios ON funcionarios.id = cargos_funcionarios.id_funcionario
+LEFT JOIN cargos ON cargos.id = cargos_funcionarios.id_cargo
+WHERE cargos.salario <= 5000.52;
