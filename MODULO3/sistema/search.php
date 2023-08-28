@@ -1,7 +1,7 @@
 <?php 
 require_once 'Conecta.php';
 
-$usuario = filter_input(INPUT_POST,'palavra',FILTER_SANITIZE_STRING);
+$usuario = filter_input(INPUT_POST,'palavra');
 
 if(!empty($usuario)) {
   
