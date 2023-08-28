@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid mx-3">
@@ -31,7 +31,7 @@
         </ul>
         <form class="d-flex" role="search" method="POST">
           <input class="form-control me-2" type="search" placeholder="Pesquise por marca" name="search"
-            aria-label="Search" id="query">
+            aria-label="Search" id="search">
           <button class="btn btn-outline-success" type="submit" name="query"><i
               class="fa-solid fa-magnifying-glass"></i></button>
         </form>

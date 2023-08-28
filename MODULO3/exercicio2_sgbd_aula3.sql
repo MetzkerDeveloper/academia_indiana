@@ -123,10 +123,20 @@ SELECT funcionarios_empresas.id_funcionario, funcionarios.nome AS nome_funcionar
 LEFT JOIN funcionarios ON funcionarios.id = funcionarios_empresas.id_funcionario 
 LEFT JOIN empresas ON empresas.id = funcionarios_empresas.id_empresa WHERE empresas.nome LIKE 'Far%';
 
+SELECT funcionarios_empresas.id_empresa, empresas.nome AS nome_empresa, empresas.cnpj, empresas.endereco AS endereco_empresa,
+empresas.bairro AS bairro_empresa, empresas.numero AS numero_empresa, empresas.estado AS estado_empresa,
+funcionarios_empresas.id_funcionario, funcionarios.nome AS nome_funcionario, funcionarios.cpf,
+funcionarios.idade, funcionarios.telefone, funcionarios.endereco AS endereco_funcionario, 
+funcionarios.bairro AS bairro_funcionario, funcionarios.numero AS numero_funcionario,
+funcionarios.estado AS estado_funcionario, funcionarios.situacao
+FROM funcionarios_empresas LEFT JOIN empresas ON empresas.id = funcionarios_empresas.id_empresa
+LEFT JOIN funcionarios ON funcionarios.id = funcionarios_empresas.id_funcionario;
+
 -- selecionando funcionario por cargo
-SELECT cargos_funcionarios.id_funcionario, funcionarios.nome AS nome_funcionario, cargos_funcionarios.id_cargo, cargos.nome AS cargo_funcionario
+SELECT cargos_funcionarios.id_funcionario, funcionarios.nome AS nome_funcionario, cargos_funcionarios.id_cargo, cargos.nome AS cargo_funcionario, 
+cargos.salario
 FROM cargos_funcionarios LEFT JOIN funcionarios ON funcionarios.id = cargos_funcionarios.id_funcionario
-LEFT JOIN cargos ON cargos.id = cargos_funcionarios.id_cargo WHERE cargos.nome LIKE 'Dese%';
+LEFT JOIN cargos ON cargos.id = cargos_funcionarios.id_cargo; WHERE cargos.nome LIKE 'Dese%';
 
 -- contando quantidades de funcionarios da empresa
 SELECT COUNT(id_funcionario) FROM funcionarios_empresas WHERE id_empresa = 1;

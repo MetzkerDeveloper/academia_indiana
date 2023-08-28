@@ -64,37 +64,11 @@ $anoAtual = date('Y');
         <th>AÇÕES</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="resultado">
       <?php          
-          if((isset($_POST['query']))  && (!empty($_POST['search']))){
-            //$query = $_POST['query'];
-            $cmd = $conn->prepare("SELECT * FROM carros WHERE marca = :search ");
-            $cmd->bindValue(":search",$_POST['search']);
-            $cmd->execute();
-            
-            $results = $cmd->fetchAll(PDO::FETCH_ASSOC);
-            
-            foreach ($results as $result) 
-            {
-              echo "
-              <tr>
-              <th>$result[id]</th>
-              <td>$result[nome]</td>
-              <td>$result[marca]</td>
-              <td>$result[ano]</td>
-              <td>$result[data_inc]</td>
-              <td>
-                <a class='btn btn-primary' href='edit.php?id=$result[id]'> Editar</a>
-                <a class='btn btn-danger' href='delete.php?id=$result[id]'> Excluir</a>
-              </td>
-            </tr>
-              ";
-            } 
-          }else{
             $cmd = $conn->prepare("SELECT * FROM carros");
             $cmd->execute();
             $results = $cmd->fetchAll(PDO::FETCH_ASSOC);
-            
             foreach ($results as $result) 
             {
               echo "
@@ -111,7 +85,6 @@ $anoAtual = date('Y');
             </tr>
               ";
             } 
-          }
         ?>
     </tbody>
   </table>
