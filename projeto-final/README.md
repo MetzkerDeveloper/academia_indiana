@@ -1,6 +1,3 @@
-<p align="center"><a href="https://projeto-final.ibitweb.com.br/" target="_blank"><img src="/storage/img/logo_nova.png" width="400" alt="Indiana Logo"></a></p>
-
-
 ## Sobre o projeto
 
 Projeto página de jogos Indiana foi construido utilizando o framework Laravel
